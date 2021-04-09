@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1 class='text-center'>Clubs</h1>
+
+{% for club in clubs %}
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">{{club.club_name}}</h5>
+    <p class="card-text">{{club.club_desc}}</p>
+    <a href="#" class="btn btn-primary">Explore more</a>
+  </div>
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}
