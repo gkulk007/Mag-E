@@ -15,7 +15,7 @@ class Club(models.Model):
 
 
 class Events(models.Model):
-    event = models.ForeignKey(Club, on_delete=models.CASCADE)
+    event_club = models.ForeignKey(Club, on_delete=models.CASCADE)
     event_title = models.CharField(max_length=255, null=True, blank=True)
     event_bio = models.TextField(max_length=600, null=True, blank=True)
     event_date = models.DateTimeField(null=True, blank=True)
