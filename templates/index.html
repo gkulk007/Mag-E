@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form Validator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="animateme">
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+	<div class="container">
+		<form id="form">
+			<h2>Wanna add something?</h2>
+			<div class="form-control">
+				<label for="title">Title of Activity</label>
+				<input type="text" id="title" placeholder="Enter Title">
+				<small>Error Message</small>
+			</div>
+			<div class="form-control">
+				<label for="club">Club/Organizers</label>
+				<input type="text" id="club" placeholder="Enter Club/Organizers">
+				<small>Error Message</small>
+			</div>
+			<div class="form-control">
+				<label for="Date">Date and Time</label>
+				<input type="Date" id="Date" placeholder="Enter Date">
+				<!-- <label for="Password">Date and Time</label> -->
+				<input type="Time" id="Time" placeholder="Enter Time">
+				<small>Error Message</small>
+			</div>
+			<div class="form-control">
+				<label for="Details">Details</label>
+				<textarea type="text" id="Details" placeholder="Enter Details"></textarea>
+				<small>Error Message</small>
+			</div>
+			<button>Submit</button>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
