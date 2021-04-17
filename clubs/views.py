@@ -13,17 +13,24 @@ def clubs_view(request):
 
 
 def club_detail(request, id):
-    upcoming = None
-    passed = None
+    upcoming = []
+    passed = []
     now = timezone.now()
     club = Club.objects.get(id=id)
     event_retrive = Events.objects.all()
     for i in event_retrive:
         if i.event_club.id == id:
-            upcoming = event_retrive.filter(
-                event_date__gte=now).order_by('event_date')
-            passed = event_retrive.filter(
-                event_date__lt=now).order_by('-event_date')
+            print(i.id)
+            # event_get = Events.objects.get(id=i.event_club.id)
+            print(i)
+            if i.event_date >= now:
+                upcoming.append(i)
+            else:
+                passed.append(i)
+            # upcoming = event_get.filter(
+            #     event_date__gte=now).order_by('event_date')
+            # passed = event_get.filter(
+            #     event_date__lt=now).order_by('-event_date')
 
     context = {
         'club': club,
@@ -37,4 +44,9 @@ def club_detail(request, id):
 now = timezone.now()
         upcoming = Event.objects.filter(date__gte=now).order_by('date')
         passed = Event.objects.filter(date__lt=now).order_by('-date')
+
+        upcoming = event_get.objects.filter(
+            event_date__gte=now).order_by('event_date')
+        passed = event_get.objects.filter(
+            event_date__lt=now).order_by('-event_date')
 """
