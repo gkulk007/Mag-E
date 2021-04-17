@@ -31,3 +31,11 @@ class Members(models.Model):
 
     def __str__(self):
         return self.member_name
+
+
+class Wanna_Add(models.Model):
+    activity_title = models.CharField(max_length=300, null=True, blank=True)
+    activity_club = models.CharField(max_length=300, null=True, blank=True)
+    activity_date = models.DateField(null=True, blank=True)
+    activity_time = models.TimeField(null=True, blank=True)
+    activity_details = models.CharField(max_length=600, null=True, blank=True)

@@ -20,9 +20,9 @@ def club_detail(request, id):
     event_retrive = Events.objects.all()
     for i in event_retrive:
         if i.event_club.id == id:
-            print(i.id)
-            # event_get = Events.objects.get(id=i.event_club.id)
-            print(i)
+            # print(i.id)
+            # # event_get = Events.objects.get(id=i.event_club.id)
+            # print(i)
             if i.event_date >= now:
                 upcoming.append(i)
             else:
@@ -50,3 +50,7 @@ now = timezone.now()
         passed = event_get.objects.filter(
             event_date__lt=now).order_by('-event_date')
 """
+
+
+def wanna_add(request):
+    return render(request, 'wanna_add.html')
