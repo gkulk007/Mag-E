@@ -1,0 +1,12 @@
+.navbar {
+  background: transparent;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+  color: black !important;
+}
+
+.banner-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://ik.imagekit.io/datap/Mag-E/cover_d_0BBJPH5.jpg');
+  background-size: cover;
+}

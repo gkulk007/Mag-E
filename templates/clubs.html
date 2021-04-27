@@ -3,26 +3,29 @@
 
 {% block content %}
 <h1 class='text-center'>Clubs</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4 ">
-  {% for club in clubs %}
+<div class="container">
 
 
-  <div class="col">
-    <div class="card">
-      <img src="https://via.placeholder.com/100
+  <div class="row d-flex justify-content-around flex-wrap">
+    <!-- row-cols-1 row-cols-md-4 g-4  -->
+    {% for club in clubs %}
 
-C/O https://placeholder.com/" class="card-img-top" width=300px height=300px>
-      <div class="card-body">
-        <h5 class="card-title">{{club.club_name}}</h5>
-        <p class="card-text">{{club.club_desc}}</p>
-        <a href="{% url 'club_detail' club.id %}" class="btn btn-primary">Explore more</a>
+
+    <div class="col-4">
+      <div class="card y-20">
+        <img src="https://via.placeholder.com/100
+
+C/O https://placeholder.com/100x100" class="card-img-top" width=300px height=300px>
+        <div class="card-body">
+          <h5 class="card-title">{{club.club_name}}</h5>
+          <p class="card-text">{{club.club_desc}}</p>
+          <a href="{% url 'club_detail' club.id %}" class="btn btn-primary">Explore more</a>
+        </div>
       </div>
     </div>
+
+    {% endfor %}
   </div>
-
-
-
-  {% endfor %}
 </div>
 
 {% endblock %}

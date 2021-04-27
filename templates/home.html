@@ -2,7 +2,14 @@
 
 
 {% block content %}
+<!-- Banner Image  -->
+<div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+  <div class="content text-center">
+    <h1 class="text-white">Mag-E</h1>
+  </div>
+</div>
 <h1>Home</h1>
 <a href="{% url 'clubs_view' %}" class="btn btn-success btn-lg">Clubs</a>
 <a href="{% url 'wanna_add' %}" class="btn btn-danger btn-lg">Wanna Add Something</a>
+
 {% endblock %}
