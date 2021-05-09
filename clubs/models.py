@@ -39,3 +39,6 @@ class Wanna_Add(models.Model):
     activity_date = models.DateField(null=True, blank=True)
     activity_time = models.TimeField(null=True, blank=True)
     activity_details = models.CharField(max_length=600, null=True, blank=True)
+
+    def __str__(self):
+        return self.activity_title
