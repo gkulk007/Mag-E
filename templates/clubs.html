@@ -2,30 +2,32 @@
 
 
 {% block content %}
-<h1 class='text-center'>Clubs</h1>
-<div class="container">
 
+<div height='50px'>
+  <div>
 
-  <div class="row d-flex justify-content-around flex-wrap">
-    <!-- row-cols-1 row-cols-md-4 g-4  -->
-    {% for club in clubs %}
+    <h1 class='text-center mb-3'>Clubs</h1>
+    <div class="container">
 
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        <!-- row-cols-1 row-cols-md-4 g-4 | d-flex justify-content-around flex-wrap -->
 
-    <div class="col-4">
-      <div class="card y-20">
-        <img src="https://via.placeholder.com/100
+        {% for club in clubs %}
+        <div class="col">
 
-C/O https://placeholder.com/100x100" class="card-img-top" width=300px height=300px>
-        <div class="card-body">
-          <h5 class="card-title">{{club.club_name}}</h5>
-          <p class="card-text">{{club.club_desc}}</p>
-          <a href="{% url 'club_detail' club.id %}" class="btn btn-primary">Explore more</a>
+          <div class="card mx-auto mb-3" style="width: 18rem;">
+            <img src="https://via.placeholder.com/100
+
+C/O https://placeholder.com/300x500" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{club.club_name}}</h5>
+              <p class="card-text">{{club.club_desc}}</p>
+              <a href="{% url 'club_detail' club.id %}" class="btn btn-primary">Explore more</a>
+            </div>
+          </div>
         </div>
+        {% endfor %}
       </div>
     </div>
 
-    {% endfor %}
-  </div>
-</div>
-
-{% endblock %}
+    {% endblock %}
