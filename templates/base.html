@@ -36,7 +36,7 @@
           </li>
 
         </ul> -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,11 +59,30 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
   <!-- </div>
     </div>
   </nav> -->
-
+  <nav class="nav">
+    <div class="container">
+      <div class="logo">
+        <a href="#">Your Logo</a>
+      </div>
+      <div id="mainListDiv" class="main_list">
+        <ul class="navlinks">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <span class="navTrigger">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </div>
+  </nav>
 
   <div class="min-vh-100">
 
@@ -76,17 +95,42 @@
   </footer>
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    var nav = document.querySelector('nav');
+  <!-- Jquery needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
 
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 100) {
-        nav.classList.add('bg-dark', 'shadow');
+  <!-- Function used to shrink nav bar removing paddings and adding black background -->
+  <script>
+    $(window).scroll(function() {
+      if ($(document).scrollTop() > 50) {
+        $('.nav').addClass('affix');
+        console.log("OK");
       } else {
-        nav.classList.remove('bg-dark', 'shadow');
+        $('.nav').removeClass('affix');
       }
     });
+
+    $('.navTrigger').click(function() {
+      $(this).toggleClass('active');
+      console.log("Clicked menu");
+      $("#mainListDiv").toggleClass("show_list");
+      $("#mainListDiv").fadeIn();
+
+    });
   </script>
+  <!-- <script type="text/javascript">
+    // var nav = document.querySelector('nav');
+    //
+    // window.addEventListener('scroll', function() {
+    //   if (window.pageYOffset > 100) {
+    //     nav.classList.add('bg-dark', 'shadow');
+    //   } else {
+    //     nav.classList.remove('bg-dark', 'shadow');
+    //   }
+    // });
+
+
+  </script> -->
 </body>
 
 </html>
