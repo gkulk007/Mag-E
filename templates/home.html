@@ -12,4 +12,29 @@
 <a href="{% url 'clubs_view' %}" class="btn btn-success btn-lg">Clubs</a>
 <a href="{% url 'wanna_add' %}" class="btn btn-danger btn-lg">Wanna Add Something</a>
 
+
+<div class="container">
+  <h1 class='text-center mb-3'>Upcomming Events</h1><br>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <!-- row-cols-1 row-cols-md-4 g-4 | d-flex justify-content-around flex-wrap -->
+
+    {% for e in upcoming %}
+    <div class="col">
+
+      <div class="card mx-auto mb-3" style="width: 18rem;">
+        <img src="https://via.placeholder.com/100
+
+C/O https://placeholder.com/300x500" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{e}}</h5>
+          <p class="card-text">{{e.event_bio}}</p>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
 {% endblock %}
