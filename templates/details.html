@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+  body {
+    background: linear-gradient(rgba(130, 53, 16, 0.86), rgba(14, 170, 48, 0.7));
+  }
+</style>
 <div class="container col-xxl-8 px-4 py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
@@ -10,6 +15,15 @@
       <h1 class="display-5 fw-bold lh-1 mb-3">{{club.club_name}}</h1>
       <h4>About Club 1</h4>
       <p class="lead">{{club.club_desc}}</p>
+      <ul class="list-group list-group-horizontal mb-3">
+        {% if club.youtube_channel|length > 0 %}
+        <li class="list-group-item border-0"><i class="fab fa-youtube"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-discord"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-instagram"></i></li>
+        {% endif %}
+      </ul>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Home</button>
         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign In</button>
@@ -20,8 +34,7 @@
 
 
 <h2 class="text-center mb-3">Upcoming Events</h2>
-<div class="container">
-
+<div class="container mb-3">
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for e in upcoming %}
@@ -39,7 +52,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container mb-3">
   <h2 class="text-center mb-3">Previous Events</h2>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for e in passed %}

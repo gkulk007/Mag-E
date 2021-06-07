@@ -12,9 +12,12 @@
 <a href="{% url 'clubs_view' %}" class="btn btn-success btn-lg">Clubs</a>
 <a href="{% url 'wanna_add' %}" class="btn btn-danger btn-lg">Wanna Add Something</a>
 
-
+<!-- Featuring Upcomming events  -->
 <div class="container">
   <h1 class='text-center mb-3'>Upcomming Events</h1><br>
+
+  {% if upcomming == '' %}
+  {% endif %}
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
     <!-- row-cols-1 row-cols-md-4 g-4 | d-flex justify-content-around flex-wrap -->
 
