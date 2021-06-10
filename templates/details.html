@@ -20,12 +20,27 @@
       <p class="lead">{{club.club_desc}}</p>
       <ul class="list-group list-group-horizontal mb-3">
         {% if club.youtube_channel|length > 0 %}
-        <li class="list-group-item border-0"><i class="fab fa-youtube"></i></li>
-        <li class="list-group-item border-0"><i class="fab fa-discord"></i></li>
-        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
-        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
-        <li class="list-group-item border-0"><i class="fab fa-instagram"></i></li>
+        <li class="list-group-item border-0"><a href='{{club.youtube_channel}}'><img src="https://img.icons8.com/color/28/000000/youtube-play.png" /></a></li>
         {% endif %}
+        {% if club.discord|length > 0 %}
+        <li class="list-group-item border-0"><a href='{{club.discord}}'><img src="https://img.icons8.com/color/28/000000/discord-new-logo.png" /></a></li>
+        {% endif %}
+        {% if club.instagram|length > 0 %}
+        <li class="list-group-item border-0"><a href='{{club.instagram}}'><img src="https://img.icons8.com/color/28/000000/instagram-new--v2.png" /></a></li>
+        {% endif %}
+        {% if club.facebook|length > 0 %}
+        <li class="list-group-item border-0"><a href='{{club.facebook}}'><img src="https://img.icons8.com/color/28/000000/facebook-new.png" /></a></li>
+        {% endif %}
+        {% if club.website|length > 0 %}
+        <li class="list-group-item border-0"><a href='{{club.website}}'><img src="https://img.icons8.com/color/28/000000/internet--v1.png" /></a></li>
+        {% endif %}
+        {% if club.linkedin|length > 0 %}
+        <li class="list-group-item border-0"><a href='{{club.linkedin}}'><img src="https://img.icons8.com/fluent/28/000000/linkedin.png" /></a></li>
+        {% endif %}
+        <!-- <li class="list-group-item border-0"><i class="fab fa-discord"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-instagram"></i></li> -->
       </ul>
 
     </div>
@@ -45,6 +60,9 @@
           <h5 class="card-title">{{e.event_title}}</h5>
           <p class="card-text">{{e.event_bio}}</p>
           <p class="card-text">{{e.event_date}}</p>
+          {% if e.register|length > 0 %}
+          <a class='btn btn-primary btn-lg' href="{{e.register}}">Register</a>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -67,6 +85,16 @@
             <h5 class="card-title">{{e.event_title}}</h5>
             <p class="card-text">{{e.event_bio}}</p>
             <p class="card-text">{{e.event_date}}</p>
+            {% if e.yt_link|length > 0 %}
+            <p class="list-group-item border-0"><a href='{{e.yt_link}}'><img src="https://img.icons8.com/color/28/000000/youtube-play.png" /></a></p>
+            {% endif %}
+            {% if e.recording|length > 0 %}
+            <p class="list-group-item border-0"><a href='{{e.recording}}'><img src="https://img.icons8.com/metro/26/000000/link.png" /></a></p>
+            {% endif %}
+
+            {% if e.feedback|length > 0 %}
+            <a class='btn btn-primary btn-lg' href="{{e.feedback}}">Feedback</a>
+            {% endif %}
           </div>
         </div>
       </div>

@@ -8,9 +8,7 @@
     <h1 class="text-white">Mag-E</h1>
   </div>
 </div>
-<h1>Home</h1>
-<a href="{% url 'clubs_view' %}" class="btn btn-success btn-lg">Clubs</a>
-<a href="{% url 'wanna_add' %}" class="btn btn-danger btn-lg">Wanna Add Something</a>
+
 
 <!-- Featuring Upcomming events  -->
 <div class="container">
@@ -35,9 +33,12 @@ C/O https://placeholder.com/300x500" class="card-img-top" alt="...">
         </div>
       </div>
     </div>
-    {% endfor %}
+    {% empty %}
+    <div class="p-5 bg-light text-dark text-center mx-auto mb-5 rounded fw-bolder">
+      Yet no upcoming Events <br> Stay tuned!!
+      {% endfor %}
+    </div>
   </div>
-</div>
 
 
-{% endblock %}
+  {% endblock %}
