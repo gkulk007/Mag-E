@@ -4,41 +4,41 @@
 {% block content %}
 <!-- Banner Image  -->
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-  <div class="content text-center">
-    <h1 class="text-white">Mag-E</h1>
-  </div>
+    <div class="content text-center">
+        <h1 class="text-white">Mag-E</h1>
+    </div>
 </div>
 
 
 <!-- Featuring Upcomming events  -->
-<div class="container">
-  <h1 class='text-center mb-3'>Upcomming Events</h1><br>
+<div class="container club-padding">
+    <h1 class='text-center mb-3'>Upcomming Events</h1><br>
 
-  {% if upcomming == '' %}
-  {% endif %}
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-    <!-- row-cols-1 row-cols-md-4 g-4 | d-flex justify-content-around flex-wrap -->
+    {% if upcomming == '' %}
+    {% endif %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        <!-- row-cols-1 row-cols-md-4 g-4 | d-flex justify-content-around flex-wrap -->
 
-    {% for e in upcoming %}
-    <div class="col">
+        {% for e in upcoming %}
+        <div class="col">
 
-      <div class="card mx-auto mb-3" style="width: 18rem;">
-        <img src="https://via.placeholder.com/100
+            <div class="card mx-auto mb-3" style="width: 18rem;">
+                <img src="https://via.placeholder.com/100
 
 C/O https://placeholder.com/300x500" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{e}}</h5>
-          <p class="card-text">{{e.event_bio}}</p>
+                <div class="card-body">
+                    <h5 class="card-title">{{e}}</h5>
+                    <p class="card-text">{{e.event_bio}}</p>
 
+                </div>
+            </div>
         </div>
-      </div>
+        {% empty %}
+        <div class="p-5 bg-light text-dark text-center mx-auto mb-5 rounded fw-bolder">
+            Yet no upcoming Events <br> Stay tuned!!
+            {% endfor %}
+        </div>
     </div>
-    {% empty %}
-    <div class="p-5 bg-light text-dark text-center mx-auto mb-5 rounded fw-bolder">
-      Yet no upcoming Events <br> Stay tuned!!
-      {% endfor %}
-    </div>
-  </div>
 
 
-  {% endblock %}
+    {% endblock %}
