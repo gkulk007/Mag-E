@@ -28,31 +28,32 @@
 		</ul>
 	</div>
 	<div class="container">
-		<form id="form">
+		<form id="form" method="post">
+			{% csrf_token %}
 			<h2>Wanna add something?</h2>
 			<div class="form-control">
 				<label for="title">Title of Activity</label>
-				<input type="text" id="title" placeholder="Enter Title">
+				<input type="text" id="title" name='Activity' placeholder="Enter Title">
 				<small>Error Message</small>
 			</div>
 			<div class="form-control">
 				<label for="club">Club/Organizers</label>
-				<input type="text" id="club" placeholder="Enter Club/Organizers">
+				<input type="text" id="club" name='Club' placeholder="Enter Club/Organizers">
 				<small>Error Message</small>
 			</div>
 			<div class="form-control">
 				<label for="Date">Date and Time</label>
-				<input type="Date" id="Date" placeholder="Enter Date">
+				<input type="Date" id="Date" name='date' placeholder="Enter Date">
 				<!-- <label for="Password">Date and Time</label> -->
-				<input type="Time" id="Time" placeholder="Enter Time">
+				<input type="Time" id="Time" name='time' placeholder="Enter Time">
 				<small>Error Message</small>
 			</div>
 			<div class="form-control">
 				<label for="Details">Details</label>
-				<textarea type="text" id="Details" placeholder="Enter Details"></textarea>
+				<textarea type="text" id="Details" name='details' placeholder="Enter Details"></textarea>
 				<small>Error Message</small>
 			</div>
-			<button>Submit</button>
+			<button type=submit>Submit</button>
 		</form>
 	</div>
 

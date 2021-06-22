@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #28223F;
+	font-family: Montserrat, sans-serif;
+	
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: row;
+	flex-wrap: wrap;
+	min-height: 100vh;
+	margin: 0;
+}
+
+h3 {
+	margin: 10px 0;
+}
+
+h6 {
+	margin: 5px 0;
+	text-transform: uppercase;
+}
+
+p {
+	font-size: 14px;
+	line-height: 21px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.card-container {
+	background-color: #231E39;
+	border-radius: 15px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	color: #B3B8CD;
+	padding-top: 30px;
+	position: relative;
+	width: 350px;
+	max-width: 100%;
+	text-align: center;
+	margin: 20px;
+}
+
+.card-container .pro {
+	color: #231E39;
+	background-color: #FEBB0B;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px 7px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.card-container .round {
+	border: 1px solid #03BFCB;
+	border-radius: 50%;
+	padding: 7px;
+	max-width:150px;
+	max-height:150px;
+}
+
+
+
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+
+.socials {
+	font-size: 28px;
+}
+
+.socials a{
+	text-decoration: none;
+	padding:5px;
+	color: #B3B8CD;
+}

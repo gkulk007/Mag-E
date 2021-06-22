@@ -1,53 +1,119 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    body {
+        background: #e1eec3;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f05053, #e1eec3);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f05053, #e1eec3);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+</style>
 <div class="container col-xxl-8 px-4 py-5">
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6">
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8dGVjaG5vbG9neXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" class="d-block mx-lg-auto img-fluid" alt="MESCOE"
-        width="700" height="500" loading="lazy">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            {% if club.club_logo|length > 0 %}
+            <img src="{{club.club_logo}}" class="d-block mx-lg-auto img-fluid" alt="MESCOE" width="350" height="250" loading="lazy">
+            {% else %}
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8dGVjaG5vbG9neXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" class="d-block mx-lg-auto img-fluid" alt="MESCOE"
+                width="700" height="500" loading="lazy">
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">{{club.club_name}}</h1>
+            <!-- <h4>About Club </h4> -->
+            <p class="lead">{{club.club_desc}}</p>
+            <ul class="list-group list-group-horizontal mb-3">
+                {% if club.youtube_channel|length > 0 %}
+                <li class="list-group-item border-0"><a href='{{club.youtube_channel}}'><img src="https://img.icons8.com/color/28/000000/youtube-play.png" /></a></li>
+                {% endif %}
+                {% if club.discord|length > 0 %}
+                <li class="list-group-item border-0"><a href='{{club.discord}}'><img src="https://img.icons8.com/color/28/000000/discord-new-logo.png" /></a></li>
+                {% endif %}
+                {% if club.instagram|length > 0 %}
+                <li class="list-group-item border-0"><a href='{{club.instagram}}'><img src="https://img.icons8.com/color/28/000000/instagram-new--v2.png" /></a></li>
+                {% endif %}
+                {% if club.facebook|length > 0 %}
+                <li class="list-group-item border-0"><a href='{{club.facebook}}'><img src="https://img.icons8.com/color/28/000000/facebook-new.png" /></a></li>
+                {% endif %}
+                {% if club.website|length > 0 %}
+                <li class="list-group-item border-0"><a href='{{club.website}}'><img src="https://img.icons8.com/color/28/000000/internet--v1.png" /></a></li>
+                {% endif %}
+                {% if club.linkedin|length > 0 %}
+                <li class="list-group-item border-0"><a href='{{club.linkedin}}'><img src="https://img.icons8.com/fluent/28/000000/linkedin.png" /></a></li>
+                {% endif %}
+                <!-- <li class="list-group-item border-0"><i class="fab fa-discord"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-facebook"></i></li>
+        <li class="list-group-item border-0"><i class="fab fa-instagram"></i></li> -->
+            </ul>
+
+        </div>
     </div>
-    <div class="col-lg-6">
-      <h1 class="display-5 fw-bold lh-1 mb-3">{{club.club_name}}</h1>
-      <h4>About Club 1</h4>
-      <p class="lead">{{club.club_desc}}</p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Home</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign In</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 
-<h2 align=center>Upcoming Events</h2>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  {% for e in upcoming %}
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{e.event_title}}</h5>
-        <p class="card-text">{{e.event_bio}}</p>
-        <p class="card-text">{{e.event_date}}</p>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+<h2 class="text-center mb-5">Upcoming Events</h2>
+<div class="container mb-5">
 
-<h2 align=center>Previous Events</h2>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  {% for e in passed %}
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{e.event_title}}</h5>
-        <p class="card-text">{{e.event_bio}}</p>
-        <p class="card-text">{{e.event_date}}</p>
-      </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for e in upcoming %}
+        <div class="col">
+            <div class="card">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{e.event_title}}</h5>
+                    <p class="card-text">{{e.event_bio}}</p>
+                    <p class="card-text">{{e.event_date}}</p>
+                    {% if e.register|length > 0 %}
+                    <a class='btn btn-primary btn-lg' href="{{e.register}}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="p-5 bg-light text-dark text-center mx-auto mb-5 rounded fw-bolder">
+            Yet no upcoming Events <br> Stay tuned!!
+
+            {% endfor %}
+        </div>
     </div>
-  </div>
-  {% endfor %}
+
+    <div class="container mb-5">
+        <h2 class="text-center mb-5">Previous Events</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for e in passed %}
+            <div class="col">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{e.event_title}}</h5>
+                        <p class="card-text">{{e.event_bio}}</p>
+                        <p class="card-text">{{e.event_date}}</p>
+                        <ul class="list-group list-group-horizontal mb-3">
+                            {% if e.yt_link|length > 0 %}
+
+                            <li class="list-group-item border-0"><a href='{{e.yt_link}}'><img src="https://img.icons8.com/color/28/000000/youtube-play.png" /></a></li>
+                            {% endif %}
+                            {% if e.recording|length > 0 %}
+                            <li class="list-group-item border-0"><a href='{{e.recording}}'><img src="https://img.icons8.com/metro/26/000000/link.png" /></a></li>
+                            {% endif %}
+                        </ul>
+
+                        {% if e.feedback|length > 0 %}
+                        <a class='btn btn-primary btn-lg' href="{{e.feedback}}">Feedback</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="p-5 bg-light text-dark text-center mx-auto mb-5 rounded fw-bolder">
+                No previous data <br> Thankyou!!
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}

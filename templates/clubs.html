@@ -2,27 +2,45 @@
 
 
 {% block content %}
-<h1 class='text-center'>Clubs</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4 ">
-  {% for club in clubs %}
+<style>
+    body {
+
+        background: #6190E8;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #A7BFE8, #6190E8);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
-  <div class="col">
-    <div class="card">
-      <img src="https://via.placeholder.com/100
+    }
+</style>
+<h1 class='text-center mb-5 club-padding'>Clubs</h1>
+<div class="container">
 
-C/O https://placeholder.com/" class="card-img-top" width=300px height=300px>
-      <div class="card-body">
-        <h5 class="card-title">{{club.club_name}}</h5>
-        <p class="card-text">{{club.club_desc}}</p>
-        <a href="{% url 'club_detail' club.id %}" class="btn btn-primary">Explore more</a>
-      </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        <!-- row-cols-1 row-cols-md-4 g-4 | d-flex justify-content-around flex-wrap -->
+
+        {% for club in clubs %}
+        <div class="col">
+
+            <div class="card mx-auto mb-4" style="width: 18rem;">
+                {% if club.club_logo|length > 0 %}
+                <img src="{{club.club_logo}}" class="card-img-top" alt="...">
+                {% else %}
+                <img src="https://via.placeholder.com/300
+
+C/O https://placeholder.com/300x500" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{club.club_name}}</h5>
+                    <p class="card-text">{{club.club_desc}}</p>
+                    <a href="{% url 'club_detail' club.id %}" class="btn btn-primary">Explore more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-  </div>
-
-
-
-  {% endfor %}
 </div>
 
 {% endblock %}

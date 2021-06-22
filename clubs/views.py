@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Club, Events
+from .models import Club, Events, Wanna_Add
 from django.utils import timezone
 # Create your views here.
 
@@ -53,4 +53,15 @@ now = timezone.now()
 
 
 def wanna_add(request):
+    if request.method == 'POST':
+        name = request.POST.get('Activity', '')
+        club = request.POST.get('Club', '')
+        date = request.POST.get('date', '')
+        time = request.POST.get('time', '')
+        details = request.POST.get('details', '')
+
+        add = Wanna_Add(activity_title=name, activity_club=club,
+                        activity_date=date, activity_time=time, activity_details=details)
+        add.save()
+
     return render(request, 'wanna_add.html')
