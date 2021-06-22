@@ -22,3 +22,7 @@ def eventsPage(request):
         'previous': previous}
 
     return render(request, "events.html", context)
+
+
+def developersPage(request):
+    return render(request, "devs.html")
